@@ -289,8 +289,6 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-    <Compile Include="Assets\MoveX.cs" />
-    <Compile Include="Assets\PlayerScript.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -335,6 +333,10 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\GraphicsUtils.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
+    <Compile Include="Assets\Scripts\GameControlScript.cs" />
+    <Compile Include="Assets\Scripts\MeteorScript.cs" />
+    <Compile Include="Assets\Scripts\MoveX.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
