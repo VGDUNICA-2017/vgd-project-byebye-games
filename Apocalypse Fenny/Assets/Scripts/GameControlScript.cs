@@ -14,7 +14,8 @@ public class GameControlScript : MonoBehaviour {
         heart2.gameObject.SetActive(true);
         heart3.gameObject.SetActive(true);
     }
-	
+
+
 	// Update is called once per frame
 	void Update () {
         if (health > 3)

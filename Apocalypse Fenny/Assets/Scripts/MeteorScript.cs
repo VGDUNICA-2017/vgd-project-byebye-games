@@ -6,6 +6,9 @@ public class MeteorScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameControlScript.health -= 1;
+        if (collision.gameObject.tag == "Player")
+        {
+            GameControlScript.health -= 1;
+        }     
     }
 }
