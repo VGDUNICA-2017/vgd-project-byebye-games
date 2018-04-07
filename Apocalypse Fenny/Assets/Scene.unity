@@ -506,6 +506,7 @@ MonoBehaviour:
   - {fileID: 14251037}
   speed: {x: 2, y: 2}
   jump_vector: {x: 0, y: 3000}
+  delay: 0.4
   animator: {fileID: 0}
   playerbullet: {fileID: 1210118126803836, guid: ea6e21d29db6f420f819456acd060b33,
     type: 2}
@@ -516,7 +517,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
-  meteor: {fileID: 4028526680114136, guid: 8bba8d23842764c85858cfdddfe8e83f, type: 2}
+  meteor: {fileID: 4848439355518412, guid: e214a980ff0bcce48939e1027018bf9e, type: 2}
   xMax: 6
   xMin: -6
   yMax: 16
@@ -1264,7 +1265,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4320583, y: -2.9979088}
+  m_Offset: {x: 6.0230618, y: -2.9979088}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1275,7 +1276,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.009256, y: 0.4377303}
+  m_Size: {x: 21.191265, y: 0.4377303}
   m_EdgeRadius: 0
 --- !u!4 &380974673
 Transform:
@@ -1301,6 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874902533fd479f418f34bb708d3e27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 1
 --- !u!1 &474290056
 GameObject:
   m_ObjectHideFlags: 0

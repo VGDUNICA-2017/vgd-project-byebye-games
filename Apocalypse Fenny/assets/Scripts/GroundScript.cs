@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GroundScript : MonoBehaviour {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float delay;
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Meteor")
+        if (collision.gameObject.tag == "Meteor")
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject,delay);
         }
     }
 }

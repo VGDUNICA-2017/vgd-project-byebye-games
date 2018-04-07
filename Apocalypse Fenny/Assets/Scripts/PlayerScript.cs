@@ -19,6 +19,9 @@ public class PlayerScript : MonoBehaviour
 	//Ci prendiamo il component del player (in questo caso il rigidbody)
 	private Rigidbody2D rigidbodyComponent;
 
+    //variabile per il ritardo della distruzione dell'oggetto
+    public float delay;
+
 	//variabile riservata alla sezione animator di Unity
 	public Animator animator;
 	bool striscia;
@@ -67,9 +70,9 @@ public class PlayerScript : MonoBehaviour
           speed.y * 0);
 
         //dichiaro funzioni
-        _jump();
-        run();
-        _striscia();
+        Jump();
+        Run();
+        Striscia();
 
         //spara proiettile alla pressione della spacebar
         if (Input.GetKeyDown("space"))
@@ -106,11 +109,10 @@ public class PlayerScript : MonoBehaviour
 	}
 
 	//funzione che permette di saltare 
-	void _jump()
+	void Jump()
 	{
-        if (Input.GetButtonDown("Vertical") && IsGrounded == true)
+        if (Input.GetButtonDown("Jump") && (IsGrounded == true) && animator.GetBool("striscia") == false)
         {
-
             //animator.SetBool("jump", true);
             rigidbodyComponent.AddForce(jump_vector);
 
@@ -122,44 +124,36 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 rigidbodyComponent.AddForce(new Vector2(-2.0f, 0));
-            }
-           
+            }          
         }
 		//conclude il ciclo di transizione al rilascio della stessa
-		if (Input.GetButtonUp("Vertical"))
+		if (Input.GetButtonUp("Jump"))
         {
             animator.SetBool("jump", false);
         }
-
     }
 
 	//funzione che permette di correre
-	void run()
+	void Run()
 	{
-		//si attiva quando si preme una delle freccie direzionali L/R
 		if (Input.GetButtonDown("Horizontal"))
 			animator.SetBool("StartRunning", true);
-		//si disattiva al rilascio e riprende lo stato iniziale,in questo caso "walking"
+
 		if (Input.GetButtonUp("Horizontal"))
 			animator.SetBool("StartRunning", false);
 	}
 
-
-	void _striscia()//toggle per attivare e disattivare la modalità strisciare
+	void Striscia()//toggle per attivare e disattivare la modalità strisciare
 	{
+        if (Input.GetButtonDown("Vertical"))
+        {
+            animator.SetBool("striscia", true);
+        }
 
-		if (Input.GetKey(KeyCode.DownArrow))
-		{
-			striscia = !striscia;
-			if (striscia == false)
-			{
-				animator.SetBool("striscia", true);
-			}
-			else
-			{
-				animator.SetBool("striscia", false);
-			}
-		}
+        if (Input.GetButtonUp("Vertical"))
+        {
+            animator.SetBool("striscia", false);
+        }
 	}
 
     //metodo per gestire la transizione dei collider
@@ -174,6 +168,14 @@ public class PlayerScript : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(grounder.transform.position, radiuss);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Meteor")
+        {
+            Destroy(collision.gameObject,delay);
+        }
     }
 }
 
