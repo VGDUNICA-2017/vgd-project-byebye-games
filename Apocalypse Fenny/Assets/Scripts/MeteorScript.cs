@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MeteorScript : MonoBehaviour
 {
+    private GameObject player;
     private ParticleSystem _psystem;
+    private PlayerHealth playerHealth;
+    private int attackDamage = 50;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
         _psystem = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -25,7 +30,15 @@ public class MeteorScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            GameControlScript.health -= 1;
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        if (playerHealth.currentHealth > 0)
+        {
+            playerHealth.TakeDamage(attackDamage);
         }
     }
 }

@@ -2,22 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-
-
-
-
 	float speed;
 
 	void Start()
 	{
-
 		speed = 0.2f;
-
 	}
-
-
 
 	void Update()
 	{
@@ -31,9 +23,6 @@ public class bullet : MonoBehaviour
 		transform.position = position;
 		transform.Translate(0.2f, 0f, 0f);
 
-
-
-
 		//punti massimi(bordi) del campo di gioco
 		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
@@ -42,7 +31,6 @@ public class bullet : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-
 	}
 
 }

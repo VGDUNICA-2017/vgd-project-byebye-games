@@ -7,6 +7,8 @@ TagManager:
   - Meteor
   - Ground
   - Boom
+  - Door
+  - Bullet
   layers:
   - Default
   - TransparentFX
