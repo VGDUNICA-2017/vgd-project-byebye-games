@@ -7,12 +7,6 @@ public class Balcony : MonoBehaviour {
 	public Sprite[] dmgSprites = new Sprite[2];
 	private int index_b = 0;
 
-	private SpriteRenderer spriteRenderer;
-
-	void Start () {
-		spriteRenderer = GetComponent<SpriteRenderer>();
-	}
-
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Bullet") {          
